@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<title>CSS切替なしでフォントサイズを変更するjQueryプラグイン（画像タイプ）のDEMO｜Web&nbsp;Mugen</title>
+<meta charset="utf-8">
+<meta name="description" content="CSS切替なしでフォントサイズを変更するjQueryプラグイン（画像タイプ）のDEMOです。">
+<meta name="keywords" content="フォントサイズ変更,jquery,javascript,font">
+<style>
+/*************************************************
+			= default
+*************************************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, b, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+html { overflow-y: scroll; }
+body { color: #666; font: 14px Verdana, Arial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'ＭＳ Ｐゴシック', sans-serif; }
+header, footer, nav, section, article { display: block; }
+table { border-collapse: collapse; border-spacing: 0; }
+ol, ul { list-style: none; }
+caption, th { text-align: left; }
+input, textarea { border: none; padding: 0; margin: 0; color: #666666; }
+hr { display: none; height: 0; margin: 0; padding: 0; }
+a { color: #666666; }
+a:hover { text-decoration: none; color: #999999; }
+/*************************************************
+			= common
+*************************************************/
+#contents { width: 800px; margin: 0 auto; }
+#wrapper h1, #wrapper h2, #wrapper h3, #wrapper h4 { margin: 1em 0; font-weight: bold; }
+#wrapper h1 { font-size: 34px; }
+#wrapper h2 { font-size: 28px; }
+#wrapper h3 { font-size: 22px; }
+#wrapper h4 { font-size: 16px; }
+#wrapper p { margin-bottom: 1em;}
+/*************************************************
+			= page
+*************************************************/
+#font-size-change-area {
+	line-height: 1.5;
+}
+#font-size-btn {
+	*zoom: 1; /*forIE6,7*/
+	margin-bottom: 10px;
+}
+#font-size-btn:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+#font-size-btn li {
+	float: left;
+	cursor: pointer;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!--[if lte IE 8]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="jquery.cookie.js"></script>
+<script src="jquery.noChangeCssFontSizeChanger.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+
+<section id="contents">
+
+<h1>Demo&nbsp;&#8211;&nbsp;CSS切替なしでフォントサイズを変更するjQueryプラグイン（画像タイプ）</h1>
+
+<div id="font-size-change-area">
+<ul id="font-size-btn">
+<li><img src="jqueryfontsizechange-s.gif" alt="小"></li>
+<li><img src="jqueryfontsizechange-m.gif" alt="中"></li>
+<li><img src="jqueryfontsizechange-l.gif" alt="大"></li>
+</ul>
+<p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+
+</section>
+
+<!--/#wrapper--></div>
+
+</body>
+</html>
