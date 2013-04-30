@@ -22,7 +22,7 @@
 		    $btn  = $('#font-size-btn').find('img'), // font size change btn
 		    unit = '%',                  // font size unit
 		    aFontSize = [100, 116, 131], // font size list (order of [html])
-		    ovName = '_ov',	             // hover image pluse name
+		    ovName = '_ov',              // hover image pluse name
 		    acName = 'active',           // active btn name
 		    defFontSize = 0,             // default font size (order of [aFontSize])
 		    cookieExpires = 7,           // cookie save period
