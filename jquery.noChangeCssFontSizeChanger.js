@@ -19,18 +19,18 @@
 
 		// option
 		var $area = $('#font-size-change-area'),     // font size change area
-			$btn  = $('#font-size-btn').find('img'), // font size change btn
-			unit = '%',                  // font size unit
-			aFontSize = [100, 116, 131], // font size list (order of [html])
-			ovName = '_ov',	             // hover image pluse name
-			acName = 'active',           // active btn name
-			defFontSize = 0,             // default font size (order of [aFontSize])
-			cookieExpires = 7,           // cookie save period
-			cookieKey = 'font-size';     // cookie key
+		    $btn  = $('#font-size-btn').find('img'), // font size change btn
+		    unit = '%',                  // font size unit
+		    aFontSize = [100, 116, 131], // font size list (order of [html])
+		    ovName = '_ov',	             // hover image pluse name
+		    acName = 'active',           // active btn name
+		    defFontSize = 0,             // default font size (order of [aFontSize])
+		    cookieExpires = 7,           // cookie save period
+		    cookieKey = 'font-size';     // cookie key
 
 		var numFontSize = aFontSize.length,
-			aFontSizeIndex = [],
-			hasImg = ovName != '' && $btn.is('[src]');
+		    aFontSizeIndex = [],
+		    hasImg = ovName != '' && $btn.is('[src]');
 
 		for(var i = 0; i < numFontSize; i++)
 			aFontSizeIndex.push(i);
@@ -120,8 +120,8 @@
 		// click event
 		$btn.click(function(){
 			var $self = $(this),
-				index = $btn.index(this),
-				cookieVal = cookieChecker();
+			    index = $btn.index(this),
+			    cookieVal = cookieChecker();
 			if(hasImg && index != cookieVal){
 				defImgChanger(cookieVal);
 			}
