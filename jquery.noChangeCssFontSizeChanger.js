@@ -1,21 +1,21 @@
 /*!
- * jquery.noChangeCssFontSizeChange.js
+ * jquery.noChangeCssFontSizeChanger.js
  *
  * @version   : 1.0.0
  * @author    : syuji-higa
  * @copyright : Web Mugen (http://web-mugen.com/)
  * @license   : The MIT License
- * @link      : http://web-mugen.com/javascript/jquerydropdownmenuremodel/
+ * @link      : http://web-mugen.com/javascript/jquery.noChangeCssFontSizeChanger/
  * @modified  : 2013-04-30 17:55
  */
 
 (function($){
 
 	$(function(){
-		noChangeCssFontfontSizeChanger();
+		noChangeCssFontSizeChanger();
 	});
 
-	function noChangeCssFontfontSizeChanger(){
+	function noChangeCssFontSizeChanger(){
 
 		// option
 		var $area = $('#font-size-change-area'),     // font size change area
@@ -32,7 +32,7 @@
 		    aFontSizeIndex = [],
 		    hasImg = ovName != '' && $btn.is('[src]');
 
-		for(var i = 0; i < numFontSize; i++)
+		for(var i = 0; i < numFontSize; i++) {
 			aFontSizeIndex.push(i);
 		}
 
