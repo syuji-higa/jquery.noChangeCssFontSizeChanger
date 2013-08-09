@@ -1,12 +1,12 @@
 /*!
  * jquery.noChangeCssFontSizeChanger.js
  *
- * @version   : 1.0.0
+ * @version   : 1.0.1
  * @author    : syuji-higa
- * @copyright : Web Mugen (http://web-mugen.com/)
+ * @copyright : syuji-higa (https://github.com/syuji-higa)
  * @license   : The MIT License
- * @link      : http://web-mugen.com/javascript/jquery.noChangeCssFontSizeChanger/
- * @modified  : 2013-04-30 17:55
+ * @link      : http://deom.syuji-higa.com/javascript/jquery.noChangeCssFontSizeChanger/sample
+ * @modified  : 2013-08-10 21:00
  */
 
 (function($){
@@ -17,7 +17,7 @@
 
 	function noChangeCssFontSizeChanger(){
 
-		// option
+		// options
 		var $area = $('#font-size-change-area'),     // font size change area
 		    $btn  = $('#font-size-btn').find('img'), // font size change btn
 		    unit = '%',                  // font size unit
