@@ -24,12 +24,12 @@ a:hover { text-decoration: none; color: #999999; }
 			= common
 *************************************************/
 #contents { width: 800px; padding-top: 30px; margin: 0 auto; }
-#wrapper h1 { margin-bottom: 1em; font-weight: bold; font-size: 34px; }
-#wrapper h2, #wrapper h3, #wrapper h4 { margin: 1em 0; font-weight: bold; }
-#wrapper h2 { font-size: 28px; }
-#wrapper h3 { font-size: 22px; }
-#wrapper h4 { font-size: 16px; }
-#wrapper p { margin-bottom: 1em; }
+#wrap h1 { margin-bottom: 1em; font-weight: bold; font-size: 34px; }
+#wrap h2, #wrap h3, #wrap h4 { margin: 1em 0; font-weight: bold; }
+#wrap h2 { font-size: 28px; }
+#wrap h3 { font-size: 22px; }
+#wrap h4 { font-size: 16px; }
+#wrap p { margin-bottom: 1em; }
 /*************************************************
 			= page
 *************************************************/
@@ -62,16 +62,16 @@ a:hover { text-decoration: none; color: #999999; }
 	background-color: #999;
 }
 </style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <!--[if lte IE 8]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="jquery.cookie.js"></script>
 <script src="../jquery.noChangeCssFontSizeChanger.js"></script>
 </head>
 <body>
 
-<div id="wrapper">
+<div id="wrap">
 
 <section id="contents">
 
@@ -88,7 +88,7 @@ a:hover { text-decoration: none; color: #999999; }
 
 <!--/contents--></section>
 
-<!--/#wrapper--></div>
+<!--/#wrap--></div>
 
 </body>
 </html>

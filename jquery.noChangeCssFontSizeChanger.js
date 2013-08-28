@@ -1,39 +1,46 @@
 /*!
  * jquery.noChangeCssFontSizeChanger.js
  *
- * @version   : 1.0.1
+ * @version   : 1.0.2
  * @author    : syuji-higa
  * @copyright : syuji-higa (https://github.com/syuji-higa)
  * @license   : The MIT License
  * @link      : http://deom.syuji-higa.com/javascript/jquery.noChangeCssFontSizeChanger/sample
- * @modified  : 2013-08-10 21:00
+ * @modified  : 2013-08-28 15:17
  */
 
 (function($){
 
 	$(function(){
-		noChangeCssFontSizeChanger();
+		$('#font-size-change-area').noChangeCssFontSizeChanger();
 	});
 
-	function noChangeCssFontSizeChanger(){
+	$.fn.noChangeCssFontSizeChanger = function(options){
 
 		// options
-		var $area = $('#font-size-change-area'),     // font size change area
-		    $btn  = $('#font-size-btn').find('img'), // font size change btn
-		    unit = '%',                  // font size unit
-		    aFontSize = [100, 116, 131], // font size list (order of [html])
-		    ovName = '_ov',              // hover image pluse name
-		    acName = 'active',           // active btn name
-		    defFontSize = 0,             // default font size (order of [aFontSize])
-		    cookieExpires = 7,           // cookie save period
-		    cookieKey = 'font-size';     // cookie key
+		var o = $.extend({
+			elmBtn: '#font-size-btn li', // font size change btn
+			ovName: '_ov',               // hover image pluse name
+			acName: 'active',            // active btn name
+			font: {
+				unit: '%',             // font size unit
+				size: [100, 116, 131], // font size list (order of [html])
+				def : 0                // default font size (order of [o.font.size])
+			},
+			cookie: {
+				expires: 7,          // cookie save period
+				key    : 'font-size' // cookie key
+			}
+		}, options);
 
-		var numFontSize = aFontSize.length,
-		    aFontSizeIndex = [],
-		    hasImg = ovName != '' && $btn.is('[src]');
+		var $area = $(this),
+		    $btn  = $(o.elmBtn),
+		    numFontSize = o.font.size.length,
+		    fontSizeIndex = [],
+		    hasImg = o.ovName != '' && $btn.find('img').is('[src]');
 
 		for(var i = 0; i < numFontSize; i++) {
-			aFontSizeIndex.push(i);
+			fontSizeIndex.push(i);
 		}
 
 		/* ==============================
@@ -41,25 +48,25 @@
 		============================== */
 
 		function cookieChecker(){
-			return $.cookie(cookieKey);
+			return $.cookie(o.cookie.key);
 		}
 
 		function imgChanger(a_elm, a_str1, a_str2){
-			a_elm.attr('src', a_elm.attr('src').replace(
+			a_elm.find('img').attr('src', a_elm.find('img').attr('src').replace(
 				new RegExp('^(\.+)' + a_str1 + '(\\.[a-z]+)$'), '$1' + a_str2 + '$2')
 			);
 		}
 
 		function defImgChanger(a_index){
-			imgChanger($btn.eq(a_index), ovName, '');
+			imgChanger($btn.eq(a_index), o.ovName, '');
 		}
 
 		function fontSizeChanger(a_index){
-			$area.css('font-size', aFontSize[a_index] + unit);
+			$area.css('font-size', o.font.size[a_index] + o.font.unit);
 		}
 
 		function cookieSetter(a_index){
-			$.cookie(cookieKey, aFontSizeIndex[a_index], {path: '/', expires: cookieExpires});
+			$.cookie(o.cookie.key, fontSizeIndex[a_index], {path: '/', expires: o.cookie.expires});
 		}
 
 		/* ==============================
@@ -69,9 +76,9 @@
 		// preload hover img
 		if(hasImg){
 			for(var i = 0; i < numFontSize; i++){
-				$btn.each(function(){
+				$btn.find('img').each(function(){
 					$('<img>').attr('src', $(this).attr('src').replace(
-						new RegExp('^(\.+)(\\.[a-z]+)$'), '$1' + ovName + '$2')
+						new RegExp('^(\.+)(\\.[a-z]+)$'), '$1' + o.ovName + '$2')
 					);
 				});
 			}
@@ -83,14 +90,14 @@
 				var elm = $btn.eq(cookieVal);
 			}
 			else {
-				cookieSetter(defFontSize);
-				var elm = $btn.eq(defFontSize);
+				cookieSetter(o.font.def);
+				var elm = $btn.eq(o.font.def);
 			}
 			if(hasImg){
-				imgChanger(elm, '', ovName);
+				imgChanger(elm, '', o.ovName);
 			}
 			fontSizeChanger(cookieVal);
-			elm.addClass(acName);
+			elm.addClass(o.acName);
 		})();
 
 		/* ==============================
@@ -101,15 +108,15 @@
 		if(hasImg){
 			$btn.each(function(i){
 				function fontSizeChecker(){
-					return cookieChecker() != aFontSizeIndex[i]
+					return cookieChecker() != fontSizeIndex[i]
 				}
-				$(this).hover(
-				function(){
+				$(this)
+				.on('mouseover', function(){
 					if(fontSizeChecker()){
-						imgChanger($(this), '', ovName);
+						imgChanger($(this), '', o.ovName);
 					}
-				},
-				function(){
+				})
+				.on('mouseout', function(){
 					if(fontSizeChecker()){
 						defImgChanger(i);
 					}
@@ -126,10 +133,10 @@
 				defImgChanger(cookieVal);
 			}
 			cookieSetter(index);
-			fontSizeChanger(cookieVal);
-			if(!$self.hasClass(acName)){
-				$btn.not(this).removeClass(acName);
-				$self.addClass(acName);
+			fontSizeChanger(index);
+			if(!$self.hasClass(o.acName)){
+				$btn.not(this).removeClass(o.acName);
+				$self.addClass(o.acName);
 			}
 		});
 
