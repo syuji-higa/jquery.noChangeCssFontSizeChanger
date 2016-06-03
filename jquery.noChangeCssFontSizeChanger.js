@@ -23,8 +23,8 @@
 			ovName: '_ov',               // hover image pluse name
 			acName: 'active',            // active btn name
 			font: {
-				unit: '%',             // font size unit
-				size: [100, 116, 131], // font size list (order of [html])
+				unit: 'rem',             // font size unit
+				size: [1, 1.2, 1.4], // font size list (order of [html])
 				def : 0                // default font size (order of [o.font.size])
 			},
 			cookie: {
